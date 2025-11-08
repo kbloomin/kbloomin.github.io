@@ -1,0 +1,512 @@
+/* CSS Variables for consistent theming */
+:root {
+    --text-color: #a78c49; /* Custom text color */
+    --background: #fbf1f6; /* Custom background */
+    --primary-color: #a75a79; /* Custom primary color */
+    --secondary-color: #cebca4; /* Custom secondary color */
+    --accent: #bbb380; /* Custom accent color */
+    /* Additional derived colors for compatibility */
+    --dark-pink: #a75a79; /* Using primary as dark pink */
+    --light-pink: #fbf1f6; /* Using background as light pink */
+    --dark-brown: #a78c49; /* Using text color as brown */
+    --text-dark: #a78c49; /* Main text color */
+    --text-light: #a78c49; /* Light text variant */
+    --cream: #cebca4; /* Using secondary as cream */
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+/* Header & Navigation */
+.header {
+    background: linear-gradient(135deg, var(--background), var(--secondary-color));
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    color: var(--dark-brown);
+    margin-bottom: 0;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Navigation with Radio Buttons */
+nav {
+    background: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    position: relative;
+}
+
+/* Hide default radio buttons */
+nav input[type="radio"] {
+    display: none;
+}
+
+/* Style the radio button labels */
+.nav-radio-label {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    padding: 12px 25px;
+    margin: 0 5px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.nav-radio-label:hover {
+    background: var(--light-pink);
+}
+
+/* Style when radio button is checked */
+nav input[type="radio"]:checked + .nav-radio-label {
+    background: var(--dark-pink);
+    color: var(--white);
+}
+
+nav input[type="radio"]:checked + .nav-radio-label a {
+    color: var(--white);
+}
+
+/* Add radio button indicator */
+.nav-radio-label::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--dark-pink);
+    margin-right: 8px;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+/* Fill the radio button when checked */
+nav input[type="radio"]:checked + .nav-radio-label::before {
+    background: var(--white);
+    border-color: var(--white);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a, .nav-radio-label a {
+    text-decoration: none;
+    color: var(--dark-brown);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover, .nav-radio-label a:hover {
+    color: var(--dark-pink);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--light-pink), var(--secondary-color));
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="%23ffffff20"/><circle cx="75" cy="75" r="2" fill="%23ffffff20"/><circle cx="50" cy="10" r="1.5" fill="%23ffffff15"/><circle cx="80" cy="20" r="1" fill="%23ffffff10"/></svg>');
+    background-size: 100px 100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    color: var(--dark-brown);
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--dark-pink);
+    color: var(--white);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.cta-button:hover {
+    background: #c54d68;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.menu-item {
+    background: linear-gradient(135deg, var(--white), var(--secondary-color));
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-item p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* --- Menu Pricing Styles --- */
+.pricing-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+    border-top: 1px dashed var(--primary-color);
+    padding-top: 10px;
+}
+
+.pricing-list li {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.price {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* About Section */
+.about-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--secondary-color), var(--background));
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Perfect circle for your circular logo */
+    object-fit: cover;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--accent); /* Use your accent color for border */
+    background: transparent;
+    /* Remove black backgrounds for logos */
+    mix-blend-mode: normal;
+    /* Enhanced for logo display */
+    object-position: center;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-info, .order-info {
+    background: var(--primary-color);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.contact-info h3, .order-info h3 {
+    color: var(--dark-brown);
+    margin-bottom: 1rem;
+}
+
+.contact-info p, .order-info p {
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-brown);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* --- New Styles for Logo and Header --- */
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    text-align: center;
+}
+
+.logo-image {
+    width: 200px; /* Larger size for your beautiful logo */
+    height: 200px;
+    border-radius: 50%; /* Circular design to match your logo */
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: none; /* Remove border to let logo shine */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Remove white background */
+    background: transparent;
+    /* Method 1: Mix blend mode to remove white */
+    mix-blend-mode: multiply;
+    /* Method 2: Alternative filter approach */
+    /* filter: contrast(1.1) brightness(1.1); */
+}
+
+header h1 {
+    font-size: 3.5em;
+    margin-top: 0; /* Remove default margin */
+}
+
+/* --- New Styles for Contact Section --- */
+
+.contact-section {
+    background-color: var(--light-pink); /* Use a light pink background */
+    color: var(--text-color);
+}
+
+.contact-info, .order-info {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info h3, .order-info h3 {
+    color: var(--dark-pink);
+    margin-bottom: 15px;
+}
+
+.contact-info a {
+    color: var(--dark-pink);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.order-quote {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+    font-style: normal;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .nav-radio-label {
+        padding: 10px 20px;
+        margin: 0;
+        width: 200px;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-item {
+        padding: 20px;
+    }
+    
+    .pricing-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .price {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .menu-section, .about-section, .contact-section {
+        padding: 60px 0;
+    }
+    
+    .about-image {
+        width: 250px;
+        height: 250px;
+    }
+}
